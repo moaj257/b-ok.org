@@ -1,7 +1,7 @@
-# b-ok.org
-An unofficial b-ok.org api
+## b-ok.org
+An unofficial b-ok.org api.
 
-Todos:
+### Todos:
   - [x] Home Books api
   - [x] Top 100 Books api
   - [x] Single Book api
