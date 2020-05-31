@@ -53,7 +53,7 @@ const scrap = async ({url, selectors}) => {
     return result;
   }, selectors);
 
-  // browser.close();
+  browser.close();
 
   return result;
 };
