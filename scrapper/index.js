@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const scrap = async ({url, selectors}) => {
-  const browser = await puppeteer.launch({headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox']});
+  const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox']});
   const page = await browser.newPage();
   await page.setViewport({ height: 1080, width: 1920, deviceScaleFactor: 1 });
   await page.setRequestInterception(true);
