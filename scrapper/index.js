@@ -12,7 +12,7 @@ const scrap = async ({url, selectors}) => {
   let result = await page.evaluate(async (selectors) => {
     let resData = {};
     const getData = ({selector, isAttr, attr, iteration, data, keyValue, root, querySelector}) => {
-      let selectr = document.querySelectorAll(`${root}`)[iteration].querySelector(`${selector}`);
+      let selectr = root ? document.querySelectorAll(`${root}`)[iteration].querySelector(`${selector}`) : document.querySelectorAll(`${selector}`)[iteration];
       // selectr = selectr.length === 1 ? selectr[0] : selectr;
       if(isAttr && attr.length > 0) {
         attr.forEach(attribute => {
@@ -37,7 +37,7 @@ const scrap = async ({url, selectors}) => {
         let res = [];
         await set.forEach(({selector, isAttr, attr, keyValue, root}) => {
           if(isSelectorValid(selector)) {
-            let querySelectors = document.querySelectorAll(`${root}`);
+            let querySelectors = document.querySelectorAll(`${root ? root : selector}`);
             querySelectors && querySelectors.forEach((querySelector, i) => {
               let data = getData({selector, isAttr, attr, iteration: i, data: res[i] ? res[i] : {}, keyValue, root, querySelector});
               res[i] = data;
