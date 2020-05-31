@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // &openInBrowser
-router.get('/single/:bookId/:id', async function(req, res, next) {
+router.get('/single/book/:bookId/:id', async function(req, res, next) {
   const {bookId, id} = req.params;
   let data = await scrap({
     url: `https://b-ok.org/book/${bookId}/${id}?dsource=mostpopular`,
