@@ -17,14 +17,10 @@ const scrap = async ({url, selectors}) => {
         attr.forEach(attribute => {
           let dtc = selectr ? (attribute === 'text' ? selectr.innerText : selectr.getAttribute(`${attribute}`)): '';
           let datap = data[`${keyValue ? keyValue : attribute}`] ? data[`${keyValue ? keyValue : attribute}`] : ((selectorLen > 1 || multi === true) ? [] : '');
-          if(keyValue === 'authors'){
-            console.log(datap, dtc, iter, attribute, '__DAR__');
-          }
-          let dtb = {[attribute]: dtc};
           if(selectorLen > 1 || multi === true){
-            datap[iter] = {[attribute]: datap[iter] && datap[iter][attribute] ? [datap[iter][attribute], dtc] : dtc};
+            datap[iter] = {...datap[iter], [attribute]: datap[iter] && datap[iter][attribute] ? [datap[iter][attribute], dtc] : dtc};
           }
-          let dta = (selectorLen > 1 || multi === true) ? (datap ? [...datap] : [dtb]) : dtc;
+          let dta = (selectorLen > 1 || multi === true) ? datap : dtc;
           data = {...data, [`${keyValue ? keyValue : attribute}`]:  dta};
         });
       } else {
