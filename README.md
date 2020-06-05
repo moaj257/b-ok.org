@@ -4,7 +4,14 @@ A simple, clean, fast and elegant books api which helps one to find books. More 
 
 An unofficial b-ok.org api.
 
+For more information, Please do check the [postman documentation](https://documenter.getpostman.com/view/4047533/SztEYmb6?version=latest)
+
 #### API DOCUMENTAION
+###### [Books Home](https://github.com/moaj257/b-ok.org#books-home-1)
+###### [Top 100](https://github.com/moaj257/b-ok.org#top-100-1)
+###### [Single Book](https://github.com/moaj257/b-ok.org#single-book-1)
+###### [Search Books](https://github.com/moaj257/b-ok.org#search-books-1)
+
 ##### BOOKS HOME
 
 ###### REQUEST
@@ -110,7 +117,7 @@ An unofficial b-ok.org api.
             "link": "/book/2364078/e40b27",
             "title": "A Mind For Numbers: How to Excel at Math and Science (Even if You Flunked Algebra)",
             "publiser": "Tarcher",
-            "authors": "Barbara Oakley",
+            "authors": [{"href":"/g/Barbara Oakley","text":"Barbara Oakley"}],
             "year": "2014",
             "language": "english",
             "file": "EPUB, 8.90 MB"
@@ -121,7 +128,7 @@ An unofficial b-ok.org api.
             "link": "/book/675718/aba47d",
             "title": "Illustrated Maths Dictionary",
             "publiser": "Pearson",
-            "authors": "Judith De Klerk",
+            "authors": [{"href":"/g/Jessika Sobanski","text":"Jessika Sobanski"}],
             "year": "2007",
             "language": "english",
             "file": "PDF, 16.44 MB"
