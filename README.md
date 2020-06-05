@@ -5,10 +5,10 @@ A simple, clean, fast and elegant books api which helps one to find books. More 
 An unofficial b-ok.org api.
 
 #### API DOCUMENTAION
-###### [Books Home] (https://github.com/moaj257/b-ok.org#books-home)
-###### [Top 100] (https://github.com/moaj257/b-ok.org#top-100)
-###### [Single Book] (https://github.com/moaj257/b-ok.org#single-book)
-###### [Search Books] (https://github.com/moaj257/b-ok.org#search-books)
+###### [Books Home](https://github.com/moaj257/b-ok.org#books-home)
+###### [Top 100](https://github.com/moaj257/b-ok.org#top-100)
+###### [Single Book](https://github.com/moaj257/b-ok.org#single-book)
+###### [Search Books](https://github.com/moaj257/b-ok.org#search-books)
 
 ##### BOOKS HOME
 
