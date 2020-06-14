@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const scrap = async ({url, selectors}) => {
-  const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox']}); //,executablePath: '/usr/bin/google-chrome'
+  const browser = await puppeteer.launch({headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox']}); //,executablePath: '/usr/bin/google-chrome'
   const page = await browser.newPage();
   await page.setViewport({ height: 1080, width: 1920, deviceScaleFactor: 1 });
   await page.setRequestInterception(true);
@@ -31,9 +31,9 @@ const scrap = async ({url, selectors}) => {
     
     const getData = ({selector, isAttr, attr, iteration, data, keyValue, root, querySelector, multi}) => {
       let selectr = root ? document.querySelectorAll(`${root}`)[iteration].querySelectorAll(`${selector}`) : document.querySelectorAll(`${selector}`)[iteration];
-      selectr.forEach((c, i) => {
+      selectr.constructor === Array ? selectr.forEach((c, i) => {
         data = getAttrArr(isAttr, attr, c, keyValue, data, selectr.length, multi, i);
-      });
+      }) : data = getAttrArr(isAttr, attr, selectr, keyValue, data, selectr.length, multi, 0);
       return data;
     };
 
@@ -66,7 +66,7 @@ const scrap = async ({url, selectors}) => {
     return result;
   }, selectors);
 
-  browser.close();
+  // browser.close();
 
   return result;
 };
