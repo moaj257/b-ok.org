@@ -1,6 +1,8 @@
-const puppeteer = require('puppeteer');
+const chrome = require('chrome-aws-lambda');
+const puppeteer = require('puppeteer-core');
 const scrap = async ({url, selectors}) => {
-  const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox']}); //,executablePath: '/usr/bin/google-chrome'
+  // const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox']}); //,executablePath: '/usr/bin/google-chrome'
+  const browser = await puppeteer.launch({headless: chrome.headless, args: chrome.args, executablePath: await chrome.executablePath});
   const page = await browser.newPage();
   await page.setViewport({ height: 1080, width: 1920, deviceScaleFactor: 1 });
   await page.setRequestInterception(true);
