@@ -10,9 +10,11 @@
   "dependencies": {
     "@babel/core": "^7.10.2",
     "axios": "^0.19.2",
+    "chrome-aws-lambda": "^3.1.1",
     "next": "9.4.4",
     "next-images": "^1.4.0",
     "puppeteer": "^3.3.0",
+    "puppeteer-core": "^3.3.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
