@@ -94,7 +94,7 @@ const Home = ({books}) => {
 }
 
 export async function getStaticProps() {
-  const api = await axios.get('http://localhost:3000/api/book');
+  const api = await axios.get(`${window.location.origin}/api/book`);
 
   return {
     props: {
