@@ -93,14 +93,9 @@ const Home = ({books}) => {
   );
 }
 
-export async function getStaticProps() {
-  const api = await axios.get(`${window.location.origin}/api/book`);
-
-  return {
-    props: {
-      books: api.data.books,
-    },
-  }
+Home.getInitialProps = async ({req}) => {
+  const api = await axios.get(`http://${req.headers.host}/api/book`);
+  return { books: api.data.books };
 }
 
 export default Home;
