@@ -18,22 +18,31 @@ const scrap = async ({url, selectors}) => {
           let dtc = selectr ? (attribute === 'text' ? selectr.innerText : selectr.getAttribute(`${attribute}`)): '';
           let datap = data[`${keyValue ? keyValue : attribute}`] ? data[`${keyValue ? keyValue : attribute}`] : ((selectorLen > 1 || multi === true) ? [] : '');
           if(selectorLen > 1 || multi === true){
-            datap[iter] = {...datap[iter], [attribute]: datap[iter] && datap[iter][attribute] ? [datap[iter][attribute], dtc] : dtc};
+            console.log(data, attribute, '__0__');
+            // datap[iter] = datap[iter] ? {...datap[iter], [attribute]: datap[iter] && datap[iter][attribute] ? [datap[iter][attribute], dtc] : dtc} : {[attribute]: dtc};
+            datap[iter] = [];
+            datap[iter][attribute] = datap[iter] && datap[iter][attribute] ? [datap[iter][attribute], dtc] : {[attribute]: dtc};
           }
           let dta = (selectorLen > 1 || multi === true) ? datap : dtc;
-          data = {...data, [`${keyValue ? keyValue : attribute}`]:  dta};
+          console.log(data, dta, Object.keys(data).length, '__1__');
+          // data = {...data, [`${keyValue ? keyValue : attribute}`]:  dta};
+          data[`${keyValue ? keyValue : attribute}`] = dta;
         });
+        console.log(data, '__2__');
       } else {
-        data = {...data, [`${keyValue ? keyValue : 'text'}`]: selectr ? selectr.innerText : ''};
+        // data = {...data, [`${keyValue ? keyValue : 'text'}`]: selectr ? selectr.innerText : ''};
+        data[`${keyValue ? keyValue : 'text'}`] = selectr ? selectr.innerText : '';
       }
+      console.log(data, '__3__');
       return data;
     };
     
     const getData = ({selector, isAttr, attr, iteration, data, keyValue, root, querySelector, multi}) => {
       let selectr = root ? document.querySelectorAll(`${root}`)[iteration].querySelectorAll(`${selector}`) : document.querySelectorAll(`${selector}`)[iteration];
-      selectr.forEach((c, i) => {
+      // console.log(root, selectr.length);
+      selectr.constructor === Array || root ? selectr.forEach((c, i) => {
         data = getAttrArr(isAttr, attr, c, keyValue, data, selectr.length, multi, i);
-      });
+      }) : data = getAttrArr(isAttr, attr, selectr, keyValue, data, selectr.length, multi, 0);
       return data;
     };
 
@@ -57,7 +66,8 @@ const scrap = async ({url, selectors}) => {
             });
           }
         });
-        resData = {...resData, [keyValue]: res.length === 1 ? res[0] : res};
+        // resData = {...resData, [keyValue]: res.length === 1 ? res[0] : res};
+        resData[keyValue] = res.length === 1 ? res[0] : res;
       });
       return resData;
     }

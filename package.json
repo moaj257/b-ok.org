@@ -1,20 +1,20 @@
 {
-  "name": "b-ok.org-api",
-  "version": "1.0.0",
-  "description": "A client b-ok.org api library.",
-  "main": "index.js",
+  "name": "yt-next",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
-  "keywords": [
-    "b-ok.org"
-  ],
-  "author": "moaj257",
-  "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "nodemon": "^2.0.4",
-    "puppeteer": "^3.2.0"
-  }
+    "@babel/core": "^7.10.2",
+    "axios": "^0.19.2",
+    "next": "9.4.4",
+    "next-images": "^1.4.0",
+    "puppeteer": "^3.3.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {}
 }
