@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const BookList = ({title, books}) => {
   return (
@@ -11,9 +12,11 @@ const BookList = ({title, books}) => {
         {books.map((book, i) => {
           return (
             <div className="book" key={`book-${i}`}>
-              <a href={book.href} title={book.title}>
-                <img src={book.img} className="book-img" />
-              </a>
+              <Link href="/book/[book_id]/[revision_id]" as={`${book.href}`}>
+                <a title={book.title}>
+                  <img src={book.img} className="book-img" />
+                </a>
+              </Link>
             </div>
           )
         })}
