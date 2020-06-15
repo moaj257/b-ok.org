@@ -21,8 +21,10 @@ const Home = ({books}) => {
         <Navigation active="home" />
       </div>
       <Slider/>
-      <div className="container-wrapper">
-        <BookList title="Popular" books={books} />
+      <div className="light-gray">
+        <div className="container-wrapper">
+          <BookList title="Popular" books={books} />
+        </div>
       </div>
       <CallToAction />
       <Footer />
