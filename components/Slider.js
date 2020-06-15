@@ -38,7 +38,6 @@ export default class Slider extends React.Component {
 
   render() {
     const {active, width} = this.state;
-    console.log(active, width, 'active');
 
     return (
       <div className="slider">
